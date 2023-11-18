@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define paths
-SITES_AVAILABLE_DIR="../sites-available"
-SITES_ENABLED_DIR="../sites-enabled"
+SITES_AVAILABLE_DIR="/etc/nginx/sites-available"
+SITES_ENABLED_DIR="/etc/nginx/sites-enabled"
 
 # Check if the directories exist
 if [ ! -d "$SITES_AVAILABLE_DIR" ]; then
