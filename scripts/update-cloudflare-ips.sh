@@ -10,7 +10,7 @@ cloudflare_ips=$(curl -s "$CLOUDFLARE_IPS_URL")
 if [ -z "$cloudflare_ips" ]
 then
     echo "Fetched an empty response from URL: '$CLOUDFLARE_IPS_URL'"
-	echo "Didn't update Cloudflare IPs"
+    echo "Didn't update Cloudflare IPs"
     exit 1
 fi
 
@@ -18,7 +18,7 @@ fi
 while IFS= read -r line; do
     if ! [[ $line =~ $CLOUDFLARE_IP_REGEX ]]; then
         echo "Invalid Cloudflare IP format detected: '$line'"
-		echo "Didn't update Cloudflare IPs"
+	echo "Didn't update Cloudflare IPs"
         exit 1
     fi
 done <<< "$cloudflare_ips"
