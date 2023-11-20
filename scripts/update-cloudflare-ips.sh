@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ALLOW_CLOUDFLARE_IPS_FILE=/etc/nginx/conf/allow-cloudflare-ips.conf
+ALLOW_CLOUDFLARE_IPS_FILE=/etc/nginx/conf.d/allow-cloudflare-ips.conf
 
 CLOUDFLARE_IPS_V4_URL=https://www.cloudflare.com/ips-v4
 CLOUDFLARE_IPS_V6_URL=https://www.cloudflare.com/ips-v6
