@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLOUDFLARE_IPS_ONLY_FILE=/etc/nginx/cloudflare-ips-only.conf
+ALLOW_CLOUDFLARE_IPS_FILE=/etc/nginx/conf/allow-cloudflare-ips.conf
 
 CLOUDFLARE_IPS_V4_URL=https://www.cloudflare.com/ips-v4
 CLOUDFLARE_IPS_V6_URL=https://www.cloudflare.com/ips-v6
@@ -58,15 +58,14 @@ done <<< "$cloudflare_ips_v6"
 
 # Update file
 cloudflare_ips="$cloudflare_ips_v4"$'\n'"$cloudflare_ips_v6"
-(echo "$cloudflare_ips" | sed "s|^|allow |g" | sed "s|\$|;|g" && echo "deny all;") > "$CLOUDFLARE_IPS_ONLY_FILE"
+(echo "$cloudflare_ips" | sed "s|^|allow |g" | sed "s|\$|;|g") > "$ALLOW_CLOUDFLARE_IPS_FILE"
 
 # Show file
 echo
 echo "Succesfully updated Cloudflare IPs"
 echo
-echo "Contents of "$CLOUDFLARE_IPS_ONLY_FILE":"
-echo
-cat "$CLOUDFLARE_IPS_ONLY_FILE"
+echo "Content of "$ALLOW_CLOUDFLARE_IPS_FILE" set to:"
+cat "$ALLOW_CLOUDFLARE_IPS_FILE"
 echo
 
 # Reload Nginx
