@@ -11,8 +11,6 @@ CLOUDFLARE_IP_V6_REGEX="^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{
 # Download IP V4 list
 cloudflare_ips_v4=$(curl -s "$CLOUDFLARE_IPS_V4_URL")
 
-echo "$cloudflare_ips_v4"
-
 # Check content
 if [ -z "$cloudflare_ips_v4" ]
 then
